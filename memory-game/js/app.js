@@ -1,9 +1,35 @@
 /*------------------------ Cached Element References ------------------------*/
-
+const cardEls = document.querySelectorAll('.cards')
+const messageEl = document.querySelector('#message')
+const resetBtnEl = document.querySelector('#reset')
+const timerEl = document.querySelector('#timer')
+const scoreEl = document.querySelector('#Score')
 /*-------------------------------- Constants --------------------------------*/
-
+const images = [
+  'cat1.png',
+  'cat2.png',
+  'cat3.png',
+  'cat4.png',
+  'cat5.png',
+  'cat6.png',
+  'cat1.png',
+  'cat2.png',
+  'cat3.png',
+  'cat4.png',
+  'cat5.png',
+  'cat6.png',
+  'cat7.png',
+  'cat7.png',
+  'cat8.png',
+  'cat8.png'
+]
 /*---------------------------- Variables (state) ----------------------------*/
-
+//initializing the game
+let firstCard = null
+let secondCard = null
+let lockBoard = false
+let score = 0
+let time = 60
 /*-------------------------------- Functions --------------------------------*/
 
 /*----------------------------- Event Listeners -----------------------------*/
