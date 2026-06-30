@@ -54,6 +54,46 @@ function flipCard(card, index) {
   secondCard = card
   checkMatch()
 }
+
+function checkMatch() {
+  console.log(firstCard)
+  console.log(secondCard)
+  const isMatch =
+    firstCard.style.backgroundImage === secondCard.style.backgroundImage
+  console.log(isMatch)
+
+  if (isMatch) {
+    messageEl.textContent = 'Correct!'
+    score += 1
+    scoreEl.textContent = 'Score: ' + score
+
+    resetCards()
+
+    if (score === 8) {
+      messageEl.textContent = 'You won!'
+      stopTimer()
+    }
+  } else {
+    lockBoard = true
+    messageEl.textContent = 'Try again'
+
+    setTimeout(() => {
+      unflip(firstCard)
+      unflip(secondCard)
+      resetCards()
+    }, 800)
+  }
+}
+
+function unflip(card) {
+  card.classList.remove('flipped')
+  card.style.backgroundImage = ''
+}
+function resetCards() {
+  firstCard = null
+  secondCard = null
+  lockBoard = false
+}
 /*----------------------------- Event Listeners -----------------------------*/
 cardEls.forEach((card, index) => {
   card.addEventListener('click', () => {
