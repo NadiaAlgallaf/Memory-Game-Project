@@ -1,16 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap');
+
+header {
+  text-align: center;
+  background-color: #f2619c;
+  border-radius: 20px;
+  padding: 10px;
+  width: 800px;
+  margin: 0 auto;
+}
+h1 {
+  color: #ede986;
+}
 body {
   background-color: rgba(255, 192, 203, 0.482);
+  font-family: 'Josefin Sans', sans-serif;
 }
 
 #data-section {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
+  margin: 20px;
 }
 
 #grid-section {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
+  margin: 0 auto;
   height: 500px;
   width: 500px;
 }
@@ -18,7 +34,6 @@ body {
 .cards {
   display: flex;
   justify-content: center;
-  border: black;
   margin: 10px;
   height: 100px;
   width: 100px;
@@ -27,4 +42,5 @@ body {
   background-position: center;
   border-radius: 7px;
   background-repeat: no-repeat;
+  box-shadow: 0 3px 0 #ffc1cc;
 }

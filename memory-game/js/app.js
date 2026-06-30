@@ -31,6 +31,11 @@ let lockBoard = false
 let score = 0
 let time = 60
 /*-------------------------------- Functions --------------------------------*/
+
+cardEls.forEach((card, index) => {
+  card.dataset.image = images[index]
+})
+
 //timer
 let timerInterval = setInterval(updateTimer, 1000)
 function updateTimer() {
@@ -45,10 +50,9 @@ function stopTimer() {
 }
 
 function flipCard(card, index) {
+  if (lockBoard) return
   card.classList.toggle('flipped')
   card.style.backgroundImage = `url(${images[index]})`
-
-  console.log(card)
 
   if (!firstCard) {
     firstCard = card
@@ -56,6 +60,7 @@ function flipCard(card, index) {
   }
 
   secondCard = card
+  lockBoard = true
   checkMatch()
 }
 
@@ -72,19 +77,18 @@ function checkMatch() {
     scoreEl.textContent = 'Score: ' + score + '/8'
 
     resetCards()
+    detectWin()
+  } else {
+    messageEl.textContent = 'Try again'
 
-    if (!detectWin()) {
-      lockBoard = true
-      messageEl.textContent = 'Try again'
-
-      setTimeout(() => {
-        unflip(firstCard)
-        unflip(secondCard)
-        resetCards()
-      }, 800)
-    }
+    setTimeout(() => {
+      unflip(firstCard)
+      unflip(secondCard)
+      resetCards()
+    }, 800)
   }
 }
+
 function detectWin() {
   if (score === 8) {
     messageEl.textContent = 'You won!'
