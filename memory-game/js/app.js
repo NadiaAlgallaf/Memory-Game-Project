@@ -94,7 +94,23 @@ function resetCards() {
   secondCard = null
   lockBoard = false
 }
+function startAgain() {
+  firstCard = null
+  secondCard = null
+  lockBoard = false
+
+  cardEls.forEach((card) => {
+    card.style.backgroundImage = `url(./card.png)`
+    card.classList.remove('flipped')
+  })
+  score = 0
+  time = 60
+  scoreEl.textContent = 'Score:' + score
+  console.log('reset')
+}
+
 /*----------------------------- Event Listeners -----------------------------*/
+
 cardEls.forEach((card, index) => {
   card.addEventListener('click', () => {
     if (lockBoard) return
@@ -102,3 +118,5 @@ cardEls.forEach((card, index) => {
     flipCard(card, index)
   })
 })
+
+resetBtnEl.addEventListener('click', startAgain)
