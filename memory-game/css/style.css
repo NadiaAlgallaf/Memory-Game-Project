@@ -5,7 +5,8 @@ header {
   background-color: #f2619c;
   border-radius: 20px;
   padding: 10px;
-  width: 800px;
+  max-width: 800px;
+  height: 150px;
   margin: 0 auto;
 }
 h1 {
@@ -23,24 +24,51 @@ body {
 }
 
 #grid-section {
-  display: flex;
+  display: grid;
   justify-content: center;
-  flex-wrap: wrap;
-  margin: 0 auto;
-  height: 500px;
-  width: 500px;
+  grid-template-columns: repeat(4, 100px);
+  gap: 15px;
+  margin: 30 auto;
 }
 
 .cards {
-  display: flex;
-  justify-content: center;
-  margin: 10px;
   height: 100px;
   width: 100px;
   background-image: url('../card.png');
   background-size: cover;
   background-position: center;
-  border-radius: 7px;
-  background-repeat: no-repeat;
-  box-shadow: 0 3px 0 #ffc1cc;
+  border-radius: 10px;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s;
+}
+.cards:hover {
+  transform: scale(1.05);
+}
+.cards.flipped {
+  transform: scale(1.08);
+}
+#message {
+  text-align: center;
+  margin-top: 20px;
+  font-weight: bold;
+  color: #333;
+}
+#reset {
+  font-family: 'Josefin Sans', sans-serif;
+  display: block;
+  margin: 20px auto;
+  padding: 10px 25px;
+  border: none;
+  border-radius: 8px;
+  background-color: #f2619c;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+#reset:hover {
+  background-color: #e14b86;
 }
