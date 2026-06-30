@@ -40,6 +40,10 @@ function updateTimer() {
   timerEl.textContent = 'Time: 00:' + time
 }
 
+function stopTimer() {
+  clearInterval(timerInterval)
+}
+
 function flipCard(card, index) {
   card.classList.toggle('flipped')
   card.style.backgroundImage = `url(${images[index]})`
@@ -65,24 +69,29 @@ function checkMatch() {
   if (isMatch) {
     messageEl.textContent = 'Correct!'
     score += 1
-    scoreEl.textContent = 'Score: ' + score
+    scoreEl.textContent = 'Score: ' + score + '/8'
 
     resetCards()
 
-    if (score === 8) {
-      messageEl.textContent = 'You won!'
-      stopTimer()
-    }
-  } else {
-    lockBoard = true
-    messageEl.textContent = 'Try again'
+    if (!detectWin()) {
+      lockBoard = true
+      messageEl.textContent = 'Try again'
 
-    setTimeout(() => {
-      unflip(firstCard)
-      unflip(secondCard)
-      resetCards()
-    }, 800)
+      setTimeout(() => {
+        unflip(firstCard)
+        unflip(secondCard)
+        resetCards()
+      }, 800)
+    }
   }
+}
+function detectWin() {
+  if (score === 8) {
+    messageEl.textContent = 'You won!'
+    stopTimer()
+    return true
+  }
+  return false
 }
 
 function unflip(card) {
