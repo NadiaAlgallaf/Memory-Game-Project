@@ -39,4 +39,26 @@ function updateTimer() {
   }
   timerEl.textContent = 'Time: 00:' + time
 }
+
+function flipCard(card, index) {
+  card.classList.toggle('flipped')
+  card.style.backgroundImage = `url(${images[index]})`
+
+  console.log(card)
+
+  if (!firstCard) {
+    firstCard = card
+    return
+  }
+
+  secondCard = card
+  checkMatch()
+}
 /*----------------------------- Event Listeners -----------------------------*/
+cardEls.forEach((card, index) => {
+  card.addEventListener('click', () => {
+    if (lockBoard) return
+    if (card.classList.contains('flipped')) return
+    flipCard(card, index)
+  })
+})
