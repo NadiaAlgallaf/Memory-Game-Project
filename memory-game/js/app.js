@@ -31,5 +31,12 @@ let lockBoard = false
 let score = 0
 let time = 60
 /*-------------------------------- Functions --------------------------------*/
-
+//timer
+let timerInterval = setInterval(updateTimer, 1000)
+function updateTimer() {
+  if (time > 0) {
+    time--
+  }
+  timerEl.textContent = 'Time: 00:' + time
+}
 /*----------------------------- Event Listeners -----------------------------*/
