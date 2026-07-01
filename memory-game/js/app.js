@@ -4,6 +4,8 @@ const messageEl = document.querySelector('#message')
 const resetBtnEl = document.querySelector('#reset')
 const timerEl = document.querySelector('#timer')
 const scoreEl = document.querySelector('#Score')
+//pop up for winner
+const popEl = document.querySelector('.popup')
 /*-------------------------------- Constants --------------------------------*/
 const images = [
   'cat1.png',
@@ -93,6 +95,7 @@ function detectWin() {
   if (score === 8) {
     messageEl.textContent = 'You won!'
     stopTimer()
+    showPopUp()
     return true
   }
   return false
@@ -118,8 +121,18 @@ function startAgain() {
   })
   score = 0
   time = 60
-  scoreEl.textContent = 'Score:' + score
+  timerEl.textContent = 'Time:00:' + time
+  scoreEl.textContent = 'Score:' + score + '/8'
   console.log('reset')
+}
+
+//pop up
+function showPopUp() {
+  popEl.classList.add('popup-active')
+}
+
+function hidePopUp() {
+  popEl.classList.remove('popup-active')
 }
 
 /*----------------------------- Event Listeners -----------------------------*/
@@ -133,3 +146,6 @@ cardEls.forEach((card, index) => {
 })
 
 resetBtnEl.addEventListener('click', startAgain)
+
+//for the pop up when they press any where the pop should disapper
+popEl.addEventListener('click', hidePopUp)
