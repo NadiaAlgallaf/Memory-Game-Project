@@ -23,8 +23,23 @@ The game includes a timer, score tracking system, and a pop-up notification to d
 
 ## Screenshots
 
+### Game Setup & Starting Screen
 
+The initial view of the game where all cards are placed face down, ready to be flipped. The player can see the timer, score tracker, and reset button before beginning the challenge.
 
+![image shows game starting](start-play.png)
+
+### Victory Screen 🎉
+
+Displayed when the player successfully matches all card pairs within the time limit. A celebratory popup appears to congratulate the player on completing the game.
+
+![image shows the winner](winner.png)
+
+### Time’s Up ⏰
+
+Shown when the countdown timer reaches zero before all matches are completed. A popup informs the player that the game is over and allows them to restart and try again.
+
+![image shows time over ](game-over.png)
 
 
 ## Future Enhancements
