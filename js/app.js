@@ -6,8 +6,8 @@ const timerEl = document.querySelector('#timer')
 const scoreEl = document.querySelector('#Score')
 //pop up for winner
 const popEl = document.querySelector('.popup')
-const popTitle = document.querySelector('#popup-title')
-const popMessage = document.querySelector('#popup-message')
+const popupTitle = document.querySelector('#popup-title')
+const popupMessage = document.querySelector('#popup-message')
 /*-------------------------------- Constants --------------------------------*/
 const images = [
   'cat1.png',
@@ -95,9 +95,8 @@ function checkMatch() {
 
 function detectWin() {
   if (score === 8) {
-    messageEl.textContent = 'You won!'
     stopTimer()
-    showPopUp('You Win! 🎉', 'Great job! You matched all cards!')
+    showPopUp('win')
     return true
   }
   return false
@@ -129,9 +128,13 @@ function startAgain() {
 }
 
 //pop up
-function showPopUp(title, message) {
-  popupTitle.textContent = title
-  popupMessage.textContent = message
+function showPopUp(reason) {
+  switch (reason) {
+    case 'win':
+      popupTitle.textContent = 'You Win! 🎉'
+      popupMessage.textContent = 'Great job! You matched all cards!'
+      break
+  }
   popEl.classList.add('popup-active')
 }
 
@@ -140,7 +143,6 @@ function hidePopUp() {
 }
 
 /*----------------------------- Event Listeners -----------------------------*/
-
 cardEls.forEach((card, index) => {
   card.addEventListener('click', () => {
     if (lockBoard) return
