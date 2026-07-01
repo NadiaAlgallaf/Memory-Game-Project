@@ -45,7 +45,7 @@ let timerInterval = setInterval(updateTimer, 1000)
 function updateTimer() {
   if (time > 0) {
     time--
-    timerEl.textContent = 'Time: 00:' + (time < 10 ? '0' + time : time)
+    timerEl.textContent = 'Time:00:' + (time < 10 ? '0' + time : time)
   } else {
     stopGame()
   }
@@ -125,6 +125,7 @@ function startAgain() {
   })
   score = 0
   time = 60
+  updateTimer()
   timerEl.textContent = 'Time:00:' + time
   scoreEl.textContent = 'Score:' + score + '/8'
   console.log('reset')
@@ -138,8 +139,8 @@ function showPopUp(reason) {
       popupMessage.textContent = 'Great job! You matched all cards!'
       break
     case 'lose':
-      popupTitle.textContent = 'Time is up ⏰'
-      popupMessage.textContent = 'Try again!'
+      popupTitle.textContent = 'Game Over! ⏰'
+      popupMessage.textContent = 'Time is up!'
       break
   }
   popEl.classList.add('popup-active')
