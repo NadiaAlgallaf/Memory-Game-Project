@@ -6,6 +6,8 @@ const timerEl = document.querySelector('#timer')
 const scoreEl = document.querySelector('#Score')
 //pop up for winner
 const popEl = document.querySelector('.popup')
+const popTitle = document.querySelector('#popup-title')
+const popMessage = document.querySelector('#popup-message')
 /*-------------------------------- Constants --------------------------------*/
 const images = [
   'cat1.png',
@@ -44,7 +46,7 @@ function updateTimer() {
   if (time > 0) {
     time--
   }
-  timerEl.textContent = 'Time: 00:' + time
+  timerEl.textContent = 'Time:00:' + time
 }
 
 function stopTimer() {
@@ -95,7 +97,7 @@ function detectWin() {
   if (score === 8) {
     messageEl.textContent = 'You won!'
     stopTimer()
-    showPopUp()
+    showPopUp('You Win! 🎉', 'Great job! You matched all cards!')
     return true
   }
   return false
@@ -127,7 +129,9 @@ function startAgain() {
 }
 
 //pop up
-function showPopUp() {
+function showPopUp(title, message) {
+  popupTitle.textContent = title
+  popupMessage.textContent = message
   popEl.classList.add('popup-active')
 }
 
