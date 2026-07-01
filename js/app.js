@@ -45,8 +45,10 @@ let timerInterval = setInterval(updateTimer, 1000)
 function updateTimer() {
   if (time > 0) {
     time--
+    timerEl.textContent = 'Time: 00:' + (time < 10 ? '0' + time : time)
+  } else {
+    stopGame()
   }
-  timerEl.textContent = 'Time:00:' + time
 }
 
 function stopTimer() {
@@ -110,6 +112,7 @@ function resetCards() {
   firstCard = null
   secondCard = null
   lockBoard = false
+  message = null
 }
 function startAgain() {
   firstCard = null
@@ -134,6 +137,10 @@ function showPopUp(reason) {
       popupTitle.textContent = 'You Win! 🎉'
       popupMessage.textContent = 'Great job! You matched all cards!'
       break
+    case 'lose':
+      popupTitle.textContent = 'Time is up ⏰'
+      popupMessage.textContent = 'Try again!'
+      break
   }
   popEl.classList.add('popup-active')
 }
@@ -142,6 +149,15 @@ function hidePopUp() {
   popEl.classList.remove('popup-active')
 }
 
+function stopGame() {
+  stopTimer()
+  showPopUp('lose')
+  lockBoard = true
+  //stop hover
+  cardEls.forEach((card) => {
+    card.style.pointerEvents = 'none'
+  })
+}
 /*----------------------------- Event Listeners -----------------------------*/
 cardEls.forEach((card, index) => {
   card.addEventListener('click', () => {
