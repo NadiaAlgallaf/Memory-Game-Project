@@ -5,14 +5,14 @@ header {
   background-color: #f2619c;
   color: white;
   border-radius: 20px;
-  padding: 10px;
+  padding: 5px 10px;
   max-width: 800px;
-  height: 150px;
-  margin: 0 auto;
+  margin: 10px auto;
 }
 h1 {
   color: #ede986;
 }
+
 body {
   background-color: rgba(255, 192, 203, 0.482);
   font-family: 'Josefin Sans', sans-serif;
@@ -21,7 +21,7 @@ body {
 #data-section {
   display: flex;
   justify-content: space-between;
-  margin: 20px;
+  margin: 10px 20px;
 }
 
 #grid-section {
@@ -29,7 +29,7 @@ body {
   justify-content: center;
   grid-template-columns: repeat(4, 100px);
   gap: 15px;
-  margin: 30 auto;
+  margin: 10px auto;
 }
 
 .cards {
