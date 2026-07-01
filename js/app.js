@@ -4,7 +4,7 @@ const messageEl = document.querySelector('#message')
 const resetBtnEl = document.querySelector('.reset')
 const timerEl = document.querySelector('#timer')
 const scoreEl = document.querySelector('#Score')
-//pop up for winner
+//pop up
 const popEl = document.querySelector('.popup')
 const popupTitle = document.querySelector('#popup-title')
 const popupMessage = document.querySelector('#popup-message')
@@ -37,6 +37,7 @@ let score = 0
 let time = 60
 let previousMessage = false
 /*-------------------------------- Functions --------------------------------*/
+images.sort(() => Math.random() - 0.5)
 
 cardEls.forEach((card, index) => {
   card.dataset.image = images[index]
@@ -138,7 +139,6 @@ function startAgain() {
   console.log('reset')
 }
 
-//pop up
 function showPopUp(reason) {
   switch (reason) {
     case 'win':
@@ -161,10 +161,6 @@ function stopGame() {
   stopTimer()
   showPopUp('lose')
   lockBoard = true
-  //stop hover
-  // cardEls.forEach((card) => {
-  //   card.style.pointerEvents = 'none'
-  // })
 }
 /*----------------------------- Event Listeners -----------------------------*/
 cardEls.forEach((card, index) => {
@@ -178,5 +174,5 @@ cardEls.forEach((card, index) => {
 resetBtnEl.addEventListener('click', startAgain)
 popupResetBtn.addEventListener('click', startAgain)
 
-//for the pop up when they press any where the pop should disapper
+//for the pop up when they press any where the pop should disappear
 popEl.addEventListener('click', hidePopUp)
