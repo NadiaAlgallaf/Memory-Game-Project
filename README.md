@@ -1,0 +1,40 @@
+# Memory Game
+
+## Technologies Used
+
+* HTML
+* CSS
+* JavaScript
+
+## Description
+
+The Memory Game is an interactive card-matching game where players flip cards to find matching pairs within a limited time. The game challenges the player's memory and speed by requiring all pairs to be matched within 1 minute.
+
+The game includes a timer, score tracking system, and a pop-up notification to display win or lose outcomes. It is designed with a clean and engaging user interface to enhance the player experience.
+
+## User Stories
+
+* As a player, I want to click on cards to reveal their images so I can find matching pairs.
+* As a player, I want the cards to flip back if they do not match so I can try again.
+* As a player, I want to see my score update as I match pairs.
+* As a player, I want a timer so I feel challenged to finish quickly.
+* As a player, I want to receive feedback (win or lose) at the end of the game.
+* As a player, I want to restart the game easily so I can play again.
+
+## Screenshots
+
+
+
+
+
+## Future Enhancements
+
+* Add difficulty levels (easy, medium, hard)
+* Shuffle cards randomly at the start of each game
+* Add sound effects and animations
+* Improve mobile responsiveness
+* Add leaderboard or high score tracking
+* Add different themes
+
+## Credits
+
