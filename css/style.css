@@ -3,6 +3,7 @@
 header {
   text-align: center;
   background-color: #f2619c;
+  color: white;
   border-radius: 20px;
   padding: 10px;
   max-width: 800px;
@@ -56,7 +57,7 @@ body {
   font-weight: bold;
   color: #333;
 }
-#reset {
+.reset {
   font-family: 'Josefin Sans', sans-serif;
   display: block;
   margin: 20px auto;
@@ -69,7 +70,7 @@ body {
   cursor: pointer;
 }
 
-#reset:hover {
+.reset:hover {
   background-color: #e14b86;
 }
 

@@ -1,13 +1,14 @@
 /*------------------------ Cached Element References ------------------------*/
 const cardEls = document.querySelectorAll('.cards')
 const messageEl = document.querySelector('#message')
-const resetBtnEl = document.querySelector('#reset')
+const resetBtnEl = document.querySelector('.reset')
 const timerEl = document.querySelector('#timer')
 const scoreEl = document.querySelector('#Score')
 //pop up for winner
 const popEl = document.querySelector('.popup')
 const popupTitle = document.querySelector('#popup-title')
 const popupMessage = document.querySelector('#popup-message')
+const popupResetBtn = document.querySelector('#popup-reset')
 /*-------------------------------- Constants --------------------------------*/
 const images = [
   'cat1.png',
@@ -34,6 +35,7 @@ let secondCard = null
 let lockBoard = false
 let score = 0
 let time = 60
+let previousMessage = false
 /*-------------------------------- Functions --------------------------------*/
 
 cardEls.forEach((card, index) => {
@@ -57,6 +59,9 @@ function stopTimer() {
 
 function flipCard(card, index) {
   if (lockBoard) return
+  if (previousMessage) {
+    messageEl.textContent = ''
+  }
   card.classList.toggle('flipped')
   card.style.backgroundImage = `url(${images[index]})`
 
@@ -78,6 +83,7 @@ function checkMatch() {
   console.log(isMatch)
 
   if (isMatch) {
+    previousMessage = true
     messageEl.textContent = 'Correct!'
     score += 1
     scoreEl.textContent = 'Score: ' + score + '/8'
@@ -85,6 +91,7 @@ function checkMatch() {
     resetCards()
     detectWin()
   } else {
+    previousMessage = true
     messageEl.textContent = 'Try again'
 
     setTimeout(() => {
@@ -112,7 +119,6 @@ function resetCards() {
   firstCard = null
   secondCard = null
   lockBoard = false
-  message = null
 }
 function startAgain() {
   firstCard = null
@@ -125,6 +131,7 @@ function startAgain() {
   })
   score = 0
   time = 60
+  messageEl.textContent = ''
   updateTimer()
   timerEl.textContent = 'Time:00:' + time
   scoreEl.textContent = 'Score:' + score + '/8'
@@ -155,9 +162,9 @@ function stopGame() {
   showPopUp('lose')
   lockBoard = true
   //stop hover
-  cardEls.forEach((card) => {
-    card.style.pointerEvents = 'none'
-  })
+  // cardEls.forEach((card) => {
+  //   card.style.pointerEvents = 'none'
+  // })
 }
 /*----------------------------- Event Listeners -----------------------------*/
 cardEls.forEach((card, index) => {
@@ -169,6 +176,7 @@ cardEls.forEach((card, index) => {
 })
 
 resetBtnEl.addEventListener('click', startAgain)
+popupResetBtn.addEventListener('click', startAgain)
 
 //for the pop up when they press any where the pop should disapper
 popEl.addEventListener('click', hidePopUp)
