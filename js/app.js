@@ -93,7 +93,7 @@ function checkMatch() {
     detectWin()
   } else {
     previousMessage = true
-    messageEl.textContent = 'Try again'
+    messageEl.textContent = 'Try again!'
 
     setTimeout(() => {
       unflip(firstCard)
@@ -133,7 +133,10 @@ function startAgain() {
   score = 0
   time = 60
   messageEl.textContent = ''
-  updateTimer()
+
+  clearInterval(timerInterval)
+  timerInterval = setInterval(updateTimer, 1000)
+
   timerEl.textContent = 'Time:00:' + time
   scoreEl.textContent = 'Score:' + score + '/8'
   console.log('reset')
