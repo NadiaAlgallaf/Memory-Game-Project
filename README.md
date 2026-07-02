@@ -45,7 +45,6 @@ Shown when the countdown timer reaches zero before all matches are completed. A 
 ## Future Enhancements
 
 * Add difficulty levels (easy, medium, hard)
-* Shuffle cards randomly at the start of each game
 * Add sound effects and animations
 * Improve mobile responsiveness
 * Add leaderboard or high score tracking
