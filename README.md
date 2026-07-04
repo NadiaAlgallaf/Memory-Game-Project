@@ -13,7 +13,7 @@ The Memory Game is an interactive card-matching game where players flip cards to
 The game includes a timer, score tracking system, and a pop-up notification to display win or lose outcomes. It is designed with a clean and engaging user interface to enhance the player experience.
 
 ## User Stories
-
+* As a player, I want to see a start screen so I can begin the game when I am ready.
 * As a player, I want to click on cards to reveal their images so I can find matching pairs.
 * As a player, I want the cards to flip back if they do not match so I can try again.
 * As a player, I want to see my score update as I match pairs.
@@ -23,13 +23,19 @@ The game includes a timer, score tracking system, and a pop-up notification to d
 
 ## Screenshots
 
-### Game Setup & Starting Screen
+### Start Screen
 
-The initial view of the game where all cards are placed face down, ready to be flipped. The player can see the timer, score tracker, and reset button before beginning the challenge.
+Displayed when the game first loads. The player sees a centered start box with instructions and a “Start playing” button. The game does not begin until the player clicks the button.
+
+![image shows game starting screen](start-screen.png)
+
+### Game Setup
+
+The main game interface after starting. All cards are placed face down, and the player can see the timer, score tracker, and reset button.
 
 ![image shows game starting](start-play.png)
 
-### Victory Screen 🎉
+### Winning Screen 🎉
 
 Displayed when the player successfully matches all card pairs within the time limit. A celebratory popup appears to congratulate the player on completing the game.
 
@@ -51,4 +57,4 @@ Shown when the countdown timer reaches zero before all matches are completed. A 
 * Add different themes
 
 ## Credits
-
+- Instructors for guidance and support during the project
