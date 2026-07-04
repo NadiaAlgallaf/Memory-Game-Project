@@ -1,6 +1,8 @@
 /*------------------------ Cached Element References ------------------------*/
 
 //select elements from the HTML
+const startScreen = document.querySelector('#start-screen')
+const startBtn = document.querySelector('#start-btn')
 const cardEls = document.querySelectorAll('.cards')
 const messageEl = document.querySelector('#message')
 const resetBtnEl = document.querySelector('.reset')
@@ -52,15 +54,22 @@ function shuffleCards() {
   images.sort(() => Math.random() - 0.5)
 }
 
-//assign image for each card
-cardEls.forEach((card, index) => {
-  card.dataset.image = images[index]
-})
+//start the game
+function startGame() {
+  startScreen.classList.add('hidden')
+
+  shuffleCards()
+
+  //assign shuffled images
+  cardEls.forEach((card, index) => {
+    card.dataset.image = images[index]
+  })
+
+  // start timer
+  timerInterval = setInterval(updateTimer, 1000)
+}
 
 //-------- timer ---------//
-
-//start timer
-let timerInterval = setInterval(updateTimer, 1000)
 
 //update the timer value every second
 function updateTimer() {
@@ -213,6 +222,9 @@ function stopGame() {
 }
 
 /*----------------------------- Event Listeners -----------------------------*/
+
+//start button
+startBtn.addEventListener('click', startGame)
 
 //card click event
 cardEls.forEach((card, index) => {

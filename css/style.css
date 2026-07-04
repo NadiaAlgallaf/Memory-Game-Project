@@ -1,5 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap');
 
+/* basic styles */
+body {
+  background-color: rgba(255, 192, 203, 0.482);
+  font-family: 'Josefin Sans', sans-serif;
+}
+
+h1 {
+  color: #ede986;
+}
+
+/* header */
 header {
   text-align: center;
   background-color: #f2619c;
@@ -9,21 +20,22 @@ header {
   max-width: 800px;
   margin: 10px auto;
 }
-h1 {
-  color: #ede986;
-}
 
-body {
-  background-color: rgba(255, 192, 203, 0.482);
-  font-family: 'Josefin Sans', sans-serif;
-}
-
+/* data section */
 #data-section {
   display: flex;
   justify-content: space-between;
   margin: 10px 20px;
 }
 
+#message {
+  text-align: center;
+  margin-top: 20px;
+  font-weight: bold;
+  color: #333;
+}
+
+/* grid */
 #grid-section {
   display: grid;
   justify-content: center;
@@ -32,6 +44,7 @@ body {
   margin: 10px auto;
 }
 
+/* cards */
 .cards {
   height: 100px;
   width: 100px;
@@ -45,20 +58,17 @@ body {
     transform 0.2s,
     box-shadow 0.2s;
 }
+
 .cards:hover {
   transform: scale(1.05);
 }
+
 .cards.flipped {
   transform: scale(1.08);
 }
-#message {
-  text-align: center;
-  margin-top: 20px;
-  font-weight: bold;
-  color: #333;
-}
+
+/* reset button */
 .reset {
-  font-family: 'Josefin Sans', sans-serif;
   display: block;
   margin: 20px auto;
   padding: 10px 25px;
@@ -74,14 +84,13 @@ body {
   background-color: #e14b86;
 }
 
-/* this is for popup */
+/* popup */
 .popup {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  pointer-events: none;
   background: rgba(0, 0, 0, 0.6);
 
   display: flex;
@@ -89,15 +98,79 @@ body {
   align-items: center;
 
   opacity: 0;
+  pointer-events: none;
   transition: all 0.3s ease;
 }
+
 .popup-active {
   opacity: 1;
   pointer-events: auto;
 }
+
 .popup-content {
   background-color: white;
   padding: 20px;
   border-radius: 12px;
   text-align: center;
+}
+
+/* start screen */
+.start-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 192, 203, 0.95);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  z-index: 1000;
+}
+
+/* start box */
+.start-box {
+  background-color: #f2619c;
+  color: white;
+  border-radius: 20px;
+  padding: 30px 40px;
+  text-align: center;
+  max-width: 400px;
+  width: 90%;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.start-box h1 {
+  color: #ede986;
+  margin-bottom: 10px;
+}
+
+.start-box p {
+  margin-bottom: 20px;
+}
+
+/* start button */
+#start-btn {
+  padding: 10px 25px;
+  border: none;
+  border-radius: 8px;
+  background-color: white;
+  color: #f2619c;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+#start-btn:hover {
+  background-color: #ede986;
+  transform: scale(1.05);
+}
+
+/* hide start screen */
+.start-screen.hidden {
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.3s;
 }
